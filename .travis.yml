@@ -8,4 +8,15 @@ before_install:
 
 script:
   - docker run karim/docker npm run test -- --coverage
-
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-central-1"
+  app: "docker"
+  env: "DockerEnv-env"
+  bucket_name: "elasticbeanstalk-eu-central-1-626463539633"
+  bucket_path: "docker"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key:
+    secure: "$AWS_SECRET_KEY"
