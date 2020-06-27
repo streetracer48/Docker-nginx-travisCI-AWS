@@ -4,8 +4,8 @@ services:
   - docker
 
 before_install:
-  - docker build -t stephengrider/docker-react -f Dockerfile.dev .
+  - docker build -t karim/docker -f Dockerfile.dev .
 
 script:
-  - docker run stephengrider/docker-react npm run test -- --coverage
+  - docker run karim/docker npm run test -- --coverage
 
